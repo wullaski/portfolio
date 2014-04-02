@@ -1,39 +1,44 @@
-<h1>Listing projects</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Date</th>
-      <th>Technology</th>
-      <th>Role</th>
-      <th>Description</th>
-      <th>Category</th>
-      <th>Link</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @projects.each do |project| %>
-      <tr>
-        <td><%= project.name %></td>
-        <td><%= project.date %></td>
-        <td><%= project.technology %></td>
-        <td><%= project.role %></td>
-        <td><%= project.description %></td>
-        <td><%= project.category_id %></td>
-        <td><%= project.link %></td>
-        <td><%= link_to 'Show', project %></td>
-        <td><%= link_to 'Edit', edit_project_path(project) %></td>
-        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="container">
+  <% (1..9).each.with_index do |project, project_index| %>
+    <div class="project">
+      <div class="project-meta">
+        <h2><%= @projects.first.name %></h2>
+        <p><%= @projects.first.date %></p>
+        <p><%= @projects.first.role %></p>
+        <p><%= @projects.first.technology %></p>
+        <p><%= @projects.first.description %></p>
+        <p><%= link_to "Visit site", @projects.first.link, :target => "_blank" %></p>
+      </div>
+      <div class="project-gallery">
+        <div id="carousel-<%= project_index %>" class="carousel slide" data-interval="false">
+          <!-- Indicators -->
+          <ol class="carousel-indicators">
+            <% @projects.first.assets.each do |asset, index| %>
+            <li data-target="#carousel-<%= project_index %>" data-slide-to="<%= index %>" <%= "class='active'" if index == 0 %>></li>
+            <% end %>
+          </ol>
 
-<br>
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner">
+            <% @projects.first.assets.each.with_index do |asset, index| %>
+              <div class="item <%= "active" if index == 0 %>">
+                <%= image_tag asset.image.url(:medium) %>
+              </div>
+            <% end %>
+          </div>
 
-<%= link_to 'New Project', new_project_path %>
+          <!-- Controls -->
+          <a class="left carousel-control" href="#carousel-<%= project_index %>" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+          </a>
+          <a class="right carousel-control" href="#carousel-<%= project_index %>" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div> <!-- /container -->
+

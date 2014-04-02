@@ -33,7 +33,7 @@ ActiveAdmin.register Project do
     f.inputs "Gallery" do
       f.has_many :assets, :allow_destroy => true, :heading => 'Assets' do |af|
         af.input :name
-        af.input :description
+        af.input :description, :input_html => { :rows => 4 }
         af.input :url
         af.input :image, required: false, :hint => af.template.image_tag(af.object.image.url(:thumb))
       end
