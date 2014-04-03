@@ -3,11 +3,13 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .project{
   @include make-row();
-  border-bottom: 1px dotted $gray;
 }
 .project-meta{
-  @include make-sm-column(6);
+  @include make-sm-column(4);
+  background: rgba(41,47,49, 0.8);
+  margin-bottom: 2em;
+  padding-bottom: 1.4em;
 }
 .project-gallery{
-  @include make-sm-column(6);
+  @include make-sm-column(8);
 }

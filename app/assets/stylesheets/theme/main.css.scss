@@ -1,0 +1,50 @@
+//#292f31 dark blue background
+body{
+  background: none;
+}
+.background { 
+  background: url(asset-path("bkgd.jpg")) 0 0 no-repeat;
+}
+.container-main{
+  padding-top: 72px;
+  // background: rgba(41,47,49, 0.8);
+}
+.icon-connect{
+  font-size: 2em;
+}
+/* Small devices (tablets, 768px and up) */
+@media (min-width: $screen-sm-min) {
+  .container-main{
+    padding-top: 128px;
+  }
+  .navbar-brand{
+    background: url(asset-path("logo.png")) center center no-repeat;
+    background-size: 160px 70px;
+    width: 160px;
+    height: 99px;
+    margin-right: $grid-gutter-width / 2;
+    @include text-hide();
+  }
+  
+  .navbar-nav{
+    > li > a.text-link {
+      padding-top: 43px;
+      padding-bottom: 43px;
+    }
+  }
+}
+
+
+.footer{
+  @include make-sm-column(12);
+  height: 250px;
+  position: relative;
+
+  p{
+    position:absolute;
+    bottom:10px;
+  }
+}
+.small{
+  color: $gray;
+}

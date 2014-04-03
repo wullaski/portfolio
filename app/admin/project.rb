@@ -22,6 +22,7 @@ ActiveAdmin.register Project do
 
   form :html => { :enctype => "multipart/form-data" } do |f|
     f.inputs do
+      f.input :published
       f.input :name
       f.input :date
       f.input :technology

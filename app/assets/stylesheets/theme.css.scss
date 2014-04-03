@@ -1,0 +1,11 @@
+//Theme Manifest
+//Custom Fonts
+@import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono|Ubuntu:400,500,400italic);
+@import "theme/fonts/icomoon.css";
+//Import custom bootstrap from bootstrap-sass gem
+@import "bootstrap-custom";
+//Import main
+@import "theme/main";
+//Import modules that are potentially shared across mutliple pages
+@import "theme/modules/projects";
+//Import page specfifc styles

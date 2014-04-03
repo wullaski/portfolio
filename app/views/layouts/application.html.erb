@@ -13,38 +13,53 @@
   <![endif]-->
 </head>
 <body>
-<!-- Fixed navbar -->
-<div class="navbar navbar-default navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Dolenworks</a>
+<div class="background" data-type="background">                            
+  <!-- Fixed navbar -->
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Dolenworks</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li class="active">
+            <%= link_to root_path, class: "text-link" do %>
+              <span>Home</span>
+            <% end %>
+          </li>
+          <% Page.where(published: true).each do |page| %>
+          <li>
+            <%= link_to "/#{page.slug}", class: "text-link" do %>
+              <span><%= page.title %></span>
+            <% end %>
+          </li>
+          <% end %>
+          <li>
+            <a href="resume-140324.pdf" class="text-link"><span class="glyphicon glyphicon-file"></span> Resume</a>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href=""><i class="icon-connect icon-github-alt"></i></a></li>
+          <li><a href=""><i class="icon-connect icon-linkedin"></i></a></li>
+          <li><a href=""><i class="icon-connect icon-envelope"></i></a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
     </div>
-    <div class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li class="active"><%= link_to "Home", root_path %></li>
-        <% Page.where(published: true).each do |page| %>
-        <li>
-          <%= link_to page.title, "/#{page.slug}" %>
-        </li>
-        <% end %>
-        <li><a href="resume-140324.pdf">Resume</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="../navbar/">Default</a></li>
-        <li><a href="../navbar-static-top/">Static top</a></li>
-        <li class="active"><a href="./">Fixed top</a></li>
-      </ul>
-    </div><!--/.nav-collapse -->
+  </div>
+  <div class="container container-main" data-type="foreground">
+    <%= yield %>
+  </div> <!-- /container -->
+  <div class="container">
+    <div class="row">
+      <div class="footer"><p class="small">woolschlager.com &copy;2011-2014</p></div>
+    </div>
   </div>
 </div>
-
-<%= yield %>
-
 </body>
 </html>
