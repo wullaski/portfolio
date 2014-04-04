@@ -1,6 +1,6 @@
 // Core variables and mixins
 // @import "bootstrap/variables"
-@import "theme/overrides/custom-variables"; //Override
+@import "bootstrap-overrides/custom-variables"; //Override
 @import "bootstrap/mixins";
 
 
@@ -25,7 +25,7 @@
 // @import "bootstrap/input-groups";
 @import "bootstrap/navs";
 // @import "bootstrap/navbar";
-@import "theme/overrides/custom-navbar"; //Override
+@import "bootstrap-overrides/custom-navbar"; //Override
 @import "bootstrap/breadcrumbs";
 // @import "bootstrap/pagination";
 // @import "bootstrap/pager";
@@ -38,6 +38,7 @@
 // @import "bootstrap/media";
 // @import "bootstrap/list-group";
 // @import "bootstrap/panels";
+@import "bootstrap-overrides/custom-panels";
 // @import "bootstrap/wells";
 // @import "bootstrap/close";
 
@@ -45,7 +46,7 @@
 // @import "bootstrap/modals";
 // @import "bootstrap/tooltip";
 // @import "bootstrap/popovers";
-@import "theme/overrides/custom-carousel"; //Override
+@import "bootstrap-overrides/custom-carousel"; //Override
 // @import "bootstrap/carousel";
 
 // Utility classes

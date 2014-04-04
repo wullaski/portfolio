@@ -1,6 +1,15 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-4"><%= raw @page.copy %></div>
-    <div class="col-sm-8"><%= image_tag @page.image.url(:medium) %></div>
+    <div class="page-meta">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h2 class="panel-title"><%= @page.heading %></h2>
+        </div>
+        <div class="panel-body">
+          <%= raw @page.copy %>
+        </div>
+      </div>
+    </div>
+    <div class="page-image"><%= image_tag @page.image.url(:medium) %></div>
   </div>
 </div>

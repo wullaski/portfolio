@@ -1,12 +1,18 @@
 <% (1..9).each.with_index do |project, project_index| %>
   <div class="project">
     <div class="project-meta">
-      <h2><%= @projects.first.name %></h2>
-      <p><%= @projects.first.date %></p>
-      <p><%= @projects.first.role %></p>
-      <p><%= @projects.first.technology %></p>
-      <p><%= @projects.first.description %></p>
-      <p><%= link_to "Visit site", @projects.first.link, :target => "_blank" %></p>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h2 class="panel-title"><%= @projects.first.name %></h2>
+        </div>
+        <div class="panel-body">
+          <p><%= @projects.first.date.to_s(:month_year) %></p>
+          <p><strong>Role: </strong><%= @projects.first.role %></p>
+          <p><strong>Tech: </strong><%= @projects.first.technology %></p>
+          <p><%= @projects.first.description %></p>
+          <p><%= link_to "Visit site", @projects.first.link, :target => "_blank" %></p>
+        </div>
+      </div>
     </div>
     <div class="project-gallery">
       <div id="carousel-<%= project_index %>" class="carousel slide" data-interval="false">

@@ -1,15 +1,18 @@
 // Place all the styles related to the projects controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// Project styles ->
+
 .project{
   @include make-row();
+  margin-bottom: 90px;
 }
 .project-meta{
-  @include make-sm-column(4);
-  background: rgba(41,47,49, 0.8);
-  margin-bottom: 2em;
-  padding-bottom: 1.4em;
+  @extend .page-meta;
 }
 .project-gallery{
-  @include make-sm-column(8);
+  @extend .page-image;
 }
+
+// <-- Project styles

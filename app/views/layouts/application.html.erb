@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Portfolio</title>
+  <title>Dolenworks: The portfolio site of John Woolschlager</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -28,26 +28,35 @@
       </div>
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li class="active">
-            <%= link_to root_path, class: "text-link" do %>
-              <span>Home</span>
+          <li class="<%= (request.env['PATH_INFO'] == '/' ? 'active' : nil) %>" >
+            <%= link_to root_path do %>
+              <span>Projects</span>
             <% end %>
           </li>
+          <% Category.all.each do |category| %>
+            <% if Project.where(:category_id => category.id).count > 0 %>
+              <li class="<%= (request.env['PATH_INFO'] == "/categories/#{category.id}/projects" ? 'active' : nil) %>" >
+                <%= link_to category_projects_path(category.id) do %>
+                  <span><%= category.name %></span>
+                <% end %>
+              </li>
+            <% end %>
+          <% end %>
           <% Page.where(published: true).each do |page| %>
-          <li>
-            <%= link_to "/#{page.slug}", class: "text-link" do %>
+          <li class="<%= ("/#{page.slug}" == request.env['PATH_INFO']) ? 'active' : nil %>" >
+            <%= link_to "/#{page.slug}" do %>
               <span><%= page.title %></span>
             <% end %>
           </li>
           <% end %>
           <li>
-            <a href="resume-140324.pdf" class="text-link"><span class="glyphicon glyphicon-file"></span> Resume</a>
+            <a href="resume-140324.pdf"><span class="glyphicon glyphicon-file"></span> Resume</a>
           </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href=""><i class="icon-connect icon-github-alt"></i></a></li>
-          <li><a href=""><i class="icon-connect icon-linkedin"></i></a></li>
-          <li><a href=""><i class="icon-connect icon-envelope"></i></a></li>
+          <li><a href="https://github.com/wullaski" target="_blank" class="navbar-icon"><i class="icon-connect icon-github-alt"></i></a></li>
+          <li><a href="https://www.linkedin.com/pub/john-woolschlager/8/a48/366" target="_blank" class="navbar-icon"><i class="icon-connect icon-linkedin"></i></a></li>
+          <li><a href="mailto:wullaski@gmail.com" class="navbar-icon"><i class="icon-connect icon-envelope"></i></a></li>
         </ul>
       </div><!--/.nav-collapse -->
     </div>

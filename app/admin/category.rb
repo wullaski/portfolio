@@ -1,10 +1,15 @@
 ActiveAdmin.register Category do
-
+  #needed for friendly id and active admin to work together
+  controller do
+    def find_resource
+      scoped_collection.friendly.find(params[:id])
+    end
+  end
   
   # See permitted parameters documentation:
   # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
-  # permit_params :list, :of, :attributes, :on, :model
+  permit_params :title, :slug
   #
   # or
   #

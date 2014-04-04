@@ -3,17 +3,27 @@ body{
   background: none;
 }
 .background { 
-  background: url(asset-path("bkgd.jpg")) 0 0 no-repeat;
+  background: url(asset-path("bkgd-short.jpg")) 0 0 no-repeat;
 }
 .container-main{
   padding-top: 72px;
   // background: rgba(41,47,49, 0.8);
 }
-.icon-connect{
-  font-size: 2em;
-}
 /* Small devices (tablets, 768px and up) */
 @media (min-width: $screen-sm-min) {
+
+  .navbar-nav{
+    > li > a{
+      padding-top: 42.5px;
+      padding-bottom: 42.5px;
+    }
+    > li > a.navbar-icon{
+      font-size: 2em;
+      padding-top:38px;
+      padding-bottom:38px;
+    }
+  }
+
   .container-main{
     padding-top: 128px;
   }
@@ -24,13 +34,6 @@ body{
     height: 99px;
     margin-right: $grid-gutter-width / 2;
     @include text-hide();
-  }
-  
-  .navbar-nav{
-    > li > a.text-link {
-      padding-top: 43px;
-      padding-bottom: 43px;
-    }
   }
 }
 

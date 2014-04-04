@@ -1,3 +1,24 @@
 // Place all the styles related to the pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.page-meta{
+  @include make-sm-column(5);
+  // background: rgba(41,47,49, 0.8);
+  // margin-bottom: 2em;
+  // padding-bottom: 1.4em;
+}
+.page-image{
+  @include make-sm-column(7);
+
+  img{
+    max-width:100%;
+    min-width:100%;
+  }
+}
+.icon-meta{
+  font-size: 1.4em;
+  margin-right: 0.2em;
+  position: relative;
+  top: 2px;
+}

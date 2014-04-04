@@ -1,5 +1,5 @@
 ActiveAdmin.register Project do
-  permit_params :name, :date, :technology, :role, :description, :category_id, :link, 
+  permit_params :name, :date, :technology, :role, :description, :category_id, :link, :published,
     assets_attributes: [:id, :project_id, :name, :description, :url, :image, :_destroy]
 
   index do
