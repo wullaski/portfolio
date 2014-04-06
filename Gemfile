@@ -8,6 +8,7 @@ gem 'pg'
 
 # Use SASS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
+
 #use Bootstrap
 gem 'bootstrap-sass', '~> 3.1.1'
 

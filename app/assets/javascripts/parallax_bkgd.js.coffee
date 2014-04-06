@@ -3,12 +3,19 @@ $(document).ready ->
   $window = $(window)
   backgroundHeight = 1134
 
-  PositionBackground($background, backgroundHeight, $window)
 
-  $(window).resize(()->
-    console.log "resize"
-    PositionBackground($background, backgroundHeight, $window)
-  )
+  if $('html').hasClass('no-touch') #modernizr tests for touch and appends this class
+    $background.css('background-attachment', 'scroll')
+    console.log "hello"
+    setTimeout ( ->
+      PositionBackground($background, backgroundHeight, $window)
+    ), 100
+
+    $(window).resize(()->
+      console.log "resize"
+      PositionBackground($background, backgroundHeight, $window)
+    )
+
 
 PositionBackground = ($background, backgroundHeight, $window)->
   documentHeight = $(document).height()
@@ -20,16 +27,15 @@ PositionBackground = ($background, backgroundHeight, $window)->
 
   if BDRatio < 0
     yPos = (backgroundHeight - documentHeight) / -1
-    console.log yPos
     coords = '0 '+ yPos + 'px'
     $background.css({backgroundPosition: coords})
   else
-
+    #make sure scrolling is enabled
     $window.scroll ->
       scrollPosition = $window.scrollTop()
       yPos = scrollPosition * BDRatio
       coords = '0 '+ yPos + 'px'
       $background.css({ backgroundPosition: coords })
-
+  
 #background image is a percentage of the height of the document
 #top position is the percentage of the scrollposition - the scrollposition

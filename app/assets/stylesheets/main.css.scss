@@ -3,7 +3,8 @@ body{
   background: none;
 }
 .background { 
-  background: url(asset-path("bkgd-short.jpg")) 0 0 no-repeat;
+  background: url(asset-path("bkgd-short.jpg")) 0 bottom no-repeat;
+  background-color: #292f31;
 }
 .container-main{
   padding-top: 72px;
@@ -13,6 +14,7 @@ body{
 @media (min-width: $screen-sm-min) {
 
   .navbar-nav{
+    position: relative;
     > li > a{
       padding-top: 42.5px;
       padding-bottom: 42.5px;
@@ -40,7 +42,7 @@ body{
 
 .footer{
   @include make-sm-column(12);
-  height: 250px;
+  height: 150px;
   position: relative;
 
   p{
