@@ -15,31 +15,46 @@
       </div>
     </div>
     <div class="project-gallery">
-      <div id="carousel-<%= project_index %>" class="carousel slide" data-interval="false">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-          <% @projects.first.assets.each do |asset, index| %>
-          <li data-target="#carousel-<%= project_index %>" data-slide-to="<%= index %>" <%= "class='active'" if index == 0 %>></li>
-          <% end %>
-        </ol>
+      <% if @projects.first.assets.count > 1 %>
+        <div id="carousel-<%= project_index %>" class="carousel slide" data-interval="false">
+          <!-- Indicators -->
+          <ol class="carousel-indicators">
+            <% @projects.first.assets.each do |asset, index| %>
+            <li data-target="#carousel-<%= project_index %>" data-slide-to="<%= index %>" <%= "class='active'" if index == 0 %>></li>
+            <% end %>
+          </ol>
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner">
+            <% @projects.first.assets.each.with_index do |asset, index| %>
+              <div class="item <%= "active" if index == 0 %>">
+                <% if asset.url.blank? %>
+                  <%= image_tag asset.image.url(:medium) %>
+                <% else %>
+                  <iframe src="<%= asset.url %>" width="636" height="363" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
 
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner">
-          <% @projects.first.assets.each.with_index do |asset, index| %>
-            <div class="item <%= "active" if index == 0 %>">
-              <%= image_tag asset.image.url(:medium) %>
-            </div>
-          <% end %>
+          <!-- Controls -->
+          <a class="left carousel-control" href="#carousel-<%= project_index %>" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+          </a>
+          <a class="right carousel-control" href="#carousel-<%= project_index %>" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+          </a>
         </div>
-
-        <!-- Controls -->
-        <a class="left carousel-control" href="#carousel-<%= project_index %>" data-slide="prev">
-          <span class="glyphicon glyphicon-chevron-left"></span>
-        </a>
-        <a class="right carousel-control" href="#carousel-<%= project_index %>" data-slide="next">
-          <span class="glyphicon glyphicon-chevron-right"></span>
-        </a>
-      </div>
+      <% else %>
+        <% @projects.first.assets.each do |asset| %>
+          <div class="item">
+            <% if asset.url.blank? %>
+              <%= image_tag asset.image.url(:medium) %>
+            <% else %>
+              <iframe src="<%= asset.url %>" width="636" height="363" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
     </div>
   </div>
 <% end %>
