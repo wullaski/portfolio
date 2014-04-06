@@ -6,11 +6,11 @@
           <h2 class="panel-title"><%= @projects.first.name %></h2>
         </div>
         <div class="panel-body">
-          <p><%= @projects.first.date.to_s(:month_year) %></p>
-          <p><strong>Role: </strong><%= @projects.first.role %></p>
-          <p><strong>Tech: </strong><%= @projects.first.technology %></p>
-          <p><%= @projects.first.description %></p>
-          <p><%= link_to "Visit site", @projects.first.link, :target => "_blank" %></p>
+          <p><%= @projects.first.date.to_s(:month_year) unless @projects.first.date.blank? %></p>
+          <p><strong>Role: </strong><%= @projects.first.role unless @projects.first.role.blank? %></p>
+          <p><strong>Tech: </strong><%= @projects.first.technology unless @projects.first.technology.blank? %></p>
+          <p><%= @projects.first.description unless @projects.first.description.blank? %></p>
+          <p><%= link_to "Visit site", @projects.first.link, :target => "_blank" unless @projects.first.link.blank? %></p>
         </div>
       </div>
     </div>
