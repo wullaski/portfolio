@@ -39,6 +39,7 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 
 # For file uploading attached to Asset, Projects have many assets
 gem "paperclip", "~> 4.1"
+gem 'aws-sdk'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

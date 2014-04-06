@@ -47,6 +47,10 @@ GEM
       activesupport (>= 3.0.0)
     arel (4.0.2)
     atomic (1.1.16)
+    aws-sdk (1.27.0)
+      json (~> 1.4)
+      nokogiri (>= 1.4.4)
+      uuidtools (~> 2.1)
     bcrypt (3.1.7)
     bootstrap-sass (3.1.1.0)
       sass (~> 3.2)
@@ -101,8 +105,11 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.25.1)
+    mini_portile (0.5.2)
     minitest (4.7.5)
     multi_json (1.9.2)
+    nokogiri (1.6.0)
+      mini_portile (~> 0.5.0)
     orm_adapter (0.5.0)
     paperclip (4.1.1)
       activemodel (>= 3.0.0)
@@ -167,6 +174,7 @@ GEM
     uglifier (2.5.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    uuidtools (2.1.4)
     warden (1.2.3)
       rack (>= 1.0)
 
@@ -175,6 +183,7 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin!
+  aws-sdk
   bootstrap-sass (~> 3.1.1)
   coffee-rails (~> 4.0.0)
   friendly_id (~> 5.0.0)
