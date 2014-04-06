@@ -54,4 +54,8 @@ gem 'aws-sdk'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# Pretty Urls for pages
 gem 'friendly_id', '~> 5.0.0' # Note: You MUST use 5.0.0 or greater for Rails 4.0+
+
+# New Relic to keep dyno running... and for anylytics
+gem 'newrelic_rpm'
