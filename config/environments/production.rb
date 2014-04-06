@@ -77,4 +77,14 @@ Portfolio::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  #paperclip and s3 creds
+  config.paperclip_defaults = {
+  :storage => :s3,
+  :s3_credentials => {
+    :bucket => ENV['woolschlager-assets'],
+    :access_key_id => ENV['AKIAIGRKT6EZL5MPOGGQ'],
+    :secret_access_key => ENV['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']
+  }
+}
 end
