@@ -5,9 +5,9 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     if (params[:category_id])
-      @projects = Project.where(category_id: params[:category_id], published: true)
+      @projects = Project.where(category_id: params[:category_id], published: true).order(date: :desc)
     else
-      @projects = Project.where(published: true)
+      @projects = Project.where(published: true).order(date: :desc)
     end
   end
 
