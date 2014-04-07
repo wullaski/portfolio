@@ -13,12 +13,14 @@ ActiveAdmin.register Project do
       Category.find(c.category_id).name
     end
     column :link
+    column :published
     actions
   end
 
   filter :name
   filter :date
   filter :category_id
+  filter :published
 
   form :html => { :enctype => "multipart/form-data" } do |f|
     f.inputs do
