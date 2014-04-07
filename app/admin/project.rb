@@ -29,6 +29,7 @@ ActiveAdmin.register Project do
       f.input :role
       f.input :description
       f.input :category
+      f.input :link
     end
 
     f.inputs "Gallery" do

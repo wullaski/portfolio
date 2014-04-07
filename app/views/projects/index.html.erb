@@ -1,31 +1,31 @@
-<% (1..9).each.with_index do |project, project_index| %>
+<% @projects.each.with_index do |project, project_index| %>
   <div class="project">
     <div class="project-meta">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h2 class="panel-title"><%= @projects.first.name %></h2>
+          <h2 class="panel-title"><%= project.name %></h2>
         </div>
         <div class="panel-body">
-          <p><%= @projects.first.date.to_s(:month_year) unless @projects.first.date.blank? %></p>
-          <p><strong>Role: </strong><%= @projects.first.role unless @projects.first.role.blank? %></p>
-          <p><strong>Tech: </strong><%= @projects.first.technology unless @projects.first.technology.blank? %></p>
-          <p><%= @projects.first.description unless @projects.first.description.blank? %></p>
-          <p><%= link_to "Visit site", @projects.first.link, :target => "_blank" unless @projects.first.link.blank? %></p>
+          <p><%= project.date.to_s(:month_year) unless project.date.blank? %></p>
+          <p><strong>Role: </strong><%= project.role unless project.role.blank? %></p>
+          <p><strong>Tech: </strong><%= project.technology unless project.technology.blank? %></p>
+          <p><%= project.description unless project.description.blank? %></p>
+          <p><%= link_to "Visit site", project.link, :target => "_blank" unless project.link.blank? %></p>
         </div>
       </div>
     </div>
     <div class="project-gallery">
-      <% if @projects.first.assets.count > 1 %>
+      <% if project.assets.count > 1 %>
         <div id="carousel-<%= project_index %>" class="carousel slide" data-interval="false">
           <!-- Indicators -->
           <ol class="carousel-indicators">
-            <% @projects.first.assets.each do |asset, index| %>
+            <% project.assets.each do |asset, index| %>
             <li data-target="#carousel-<%= project_index %>" data-slide-to="<%= index %>" <%= "class='active'" if index == 0 %>></li>
             <% end %>
           </ol>
           <!-- Wrapper for slides -->
           <div class="carousel-inner">
-            <% @projects.first.assets.each.with_index do |asset, index| %>
+            <% project.assets.each.with_index do |asset, index| %>
               <div class="item <%= "active" if index == 0 %>">
                 <% if asset.url.blank? %>
                   <%= image_tag asset.image.url(:medium) %>
@@ -45,7 +45,7 @@
           </a>
         </div>
       <% else %>
-        <% @projects.first.assets.each do |asset| %>
+        <% project.assets.each do |asset| %>
           <div class="item">
             <% if asset.url.blank? %>
               <%= image_tag asset.image.url(:medium) %>

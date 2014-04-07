@@ -2,8 +2,8 @@ class Asset < ActiveRecord::Base
   belongs_to :project
   has_attached_file :image, 
     :styles => { 
-      :medium => "636x364>", 
-      :thumb => "100x100>" 
+      :medium => "720x405>", 
+      :thumb => "250x250>" 
     }, 
     :default_url => "/images/:style/missing.png"
 
