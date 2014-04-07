@@ -26,9 +26,7 @@ PositionBackground = ($background, backgroundHeight, $window)->
   BDRatio = 1 - (bkgdScrollDistance/documentScrollDistance)
 
   if BDRatio < 0
-    yPos = (backgroundHeight - documentHeight) / -1
-    coords = '0 '+ yPos + 'px'
-    $background.css({backgroundPosition: coords})
+    $background.css({backgroundPosition: "0 bottom"})
   else
     #make sure scrolling is enabled
     $window.scroll ->

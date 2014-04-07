@@ -1,8 +1,13 @@
 //#292f31 dark blue background
+html{
+  height: 100%;
+}
 body{
+  height: 100%;
   background: none;
 }
 .background { 
+  min-height: 100%;
   background: url(asset-path("bkgd-short.jpg")) 0 bottom no-repeat;
   background-color: #292f31;
 }
