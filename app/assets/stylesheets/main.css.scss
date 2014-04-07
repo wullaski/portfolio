@@ -6,6 +6,11 @@ body{
   background: url(asset-path("bkgd-short.jpg")) 0 bottom no-repeat;
   background-color: #292f31;
 }
+html.no-touch{
+  .background{
+    background-position: 0 0;
+  }
+}
 .container-main{
   padding-top: 72px;
   // background: rgba(41,47,49, 0.8);
