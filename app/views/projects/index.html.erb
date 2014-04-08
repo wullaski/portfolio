@@ -19,8 +19,8 @@
         <div id="carousel-<%= project_index %>" class="carousel slide" data-interval="false">
           <!-- Indicators -->
           <ol class="carousel-indicators">
-            <% project.assets.each do |asset, index| %>
-            <li data-target="#carousel-<%= project_index %>" data-slide-to="<%= index %>" <%= "class='active'" if index == 0 %>></li>
+            <% project.assets.each_with_index do |asset, index| %>
+              <li data-target="#carousel-<%= project_index %>" data-slide-to="<%= index %>" <%= "class=active" if index == 0 %>></li>
             <% end %>
           </ol>
           <!-- Wrapper for slides -->
