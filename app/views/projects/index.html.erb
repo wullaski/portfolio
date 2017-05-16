@@ -9,7 +9,7 @@
           <p><%= project.date.to_s(:month_year) unless project.date.blank? %></p>
           <p><strong>Role: </strong><%= project.role unless project.role.blank? %></p>
           <p><strong>Tech: </strong><%= project.technology unless project.technology.blank? %></p>
-          <p><%= project.description unless project.description.blank? %></p>
+          <p><%= raw project.description unless project.description.blank? %></p>
           <p><%= link_to "Visit site", project.link, :target => "_blank" unless project.link.blank? %></p>
         </div>
       </div>
